@@ -41,6 +41,7 @@
   --azure-dim:     #3a6edc;
   --azure-glow:    rgba(79, 143, 247, 0.18);
   --azure-subtle:  rgba(79, 143, 247, 0.07);
+  --azure-border:  rgba(79, 143, 247, 0.30);
 
   /* Borders & lines */
   --border:        rgba(255, 255, 255, 0.07);
@@ -86,7 +87,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 
-  /* Subtle grid texture */
   background-image:
     linear-gradient(rgba(0, 229, 195, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 229, 195, 0.025) 1px, transparent 1px),
@@ -98,7 +98,6 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
-
 img, video { max-width: 100%; display: block; }
 
 /* ============================================================
@@ -131,7 +130,6 @@ img, video { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--border);
 }
 
-/* Thin teal progress bar decorating the top */
 .topbar::before {
   content: '';
   position: absolute;
@@ -190,9 +188,7 @@ img, video { max-width: 100%; display: block; }
   text-align: center;
 }
 
-.brand-name {
-  color: var(--text-primary);
-}
+.brand-name { color: var(--text-primary); }
 
 /* Nav */
 .nav { display: flex; gap: 4px; align-items: center; }
@@ -355,6 +351,11 @@ img, video { max-width: 100%; display: block; }
   50%       { box-shadow: 0 0 0 8px rgba(0, 229, 195, 0.0); }
 }
 
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 /* ============================================================
    HERO
    ============================================================ */
@@ -370,7 +371,6 @@ img, video { max-width: 100%; display: block; }
   align-items: start;
 }
 
-/* Decorative line element */
 .hero-left::before {
   content: '';
   display: block;
@@ -391,7 +391,6 @@ img, video { max-width: 100%; display: block; }
   animation: fadeInUp 0.6s var(--ease) 0.05s backwards;
 }
 
-/* Italic accent on last name */
 .hero-title em {
   font-style: italic;
   color: var(--teal);
@@ -443,7 +442,6 @@ img, video { max-width: 100%; display: block; }
   animation: fadeInUp 0.6s var(--ease) 0.24s backwards;
 }
 
-/* Hero mini contact info */
 .hero-mini {
   display: grid;
   grid-template-columns: 1fr;
@@ -534,15 +532,14 @@ img, video { max-width: 100%; display: block; }
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.6), var(--shadow-teal);
 }
 
-.photo-card:hover::after {
-  opacity: 0.3;
-}
+.photo-card:hover::after { opacity: 0.3; }
 
 .photo {
   width: 100%;
-  height: 380px;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  object-position: center center;
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
   background: var(--canvas-raised);
@@ -722,9 +719,7 @@ img, video { max-width: 100%; display: block; }
   border-color: var(--border-md);
 }
 
-.btn.ghost:hover {
-  background: var(--surface);
-}
+.btn.ghost:hover { background: var(--surface); }
 
 .btn.sm {
   padding: 9px 14px;
@@ -737,9 +732,7 @@ img, video { max-width: 100%; display: block; }
    ============================================================ */
 .section { padding: 60px 0; }
 
-.section-head {
-  margin-bottom: 36px;
-}
+.section-head { margin-bottom: 36px; }
 
 .section-head h2 {
   font-family: var(--font-display);
@@ -752,7 +745,6 @@ img, video { max-width: 100%; display: block; }
   display: inline-block;
 }
 
-/* Teal underline decoration under section headings */
 .section-head h2::after {
   content: '';
   position: absolute;
@@ -785,7 +777,6 @@ img, video { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
-/* Subtle noise texture on cards */
 .card::after {
   content: '';
   position: absolute;
@@ -797,7 +788,6 @@ img, video { max-width: 100%; display: block; }
   opacity: 0.5;
 }
 
-/* Glowing left border appears on hover */
 .card::before {
   content: '';
   position: absolute;
@@ -1250,19 +1240,200 @@ img, video { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   CREDENTIALS
+   CREDENTIALS — FULLY REDESIGNED
    ============================================================ */
-.cred h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 8px 0 0;
-  line-height: 1.5;
-  color: var(--text-primary);
+
+/* Credentials grid layout */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
+/* Base credential card — matches the site's dark theme exactly */
+.cred {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left accent bar on hover — same as other cards */
+.cred::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--teal), var(--azure));
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  border-radius: 3px 0 0 3px;
+}
+
+.cred:hover {
+  border-color: var(--border-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  background: var(--surface-1);
+}
+
+.cred:hover::before { opacity: 1; }
+
+/* Highlighted / featured credential — teal glow, NOT white */
 .cred.highlight {
-  border: 2px solid #2563eb;
-  background: linear-gradient(180deg, #f8fbff, #ffffff);
+  background: var(--surface);
+  border: 1px solid var(--teal-border);
+  box-shadow: var(--shadow), 0 0 0 1px var(--teal-border), inset 0 0 60px rgba(0, 229, 195, 0.04);
+  position: relative;
+}
+
+/* Shimmer sweep on the highlight card */
+.cred.highlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(0, 229, 195, 0.06) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 4s ease infinite;
+  pointer-events: none;
+}
+
+/* Featured badge in top-right corner */
+.cred.highlight .cred-featured-badge {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--canvas);
+  background: linear-gradient(135deg, var(--teal), var(--teal-dim));
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(0, 229, 195, 0.35);
+}
+
+/* Highlight card has persistent left bar */
+.cred.highlight::before {
+  opacity: 1;
+  width: 4px;
+}
+
+.cred.highlight:hover {
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--teal-border), var(--shadow-teal);
+}
+
+/* Kicker inside credential */
+.cred .kicker {
+  margin-bottom: 6px;
+  color: var(--teal);
+}
+
+/* Credential heading */
+.cred h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+  margin: 0 0 14px;
+  line-height: 1.4;
+  padding-right: 80px; /* space for featured badge */
+}
+
+/* Credential metadata row */
+.cred-meta {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+
+.cred-meta strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ============================================================
+   REFERENCES
+   ============================================================ */
+.ref-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ref-role {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  margin-top: -8px;
+  margin-bottom: 18px;
+}
+
+.ref-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.ref-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ref-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  min-width: 46px;
+  flex-shrink: 0;
+}
+
+.ref-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s var(--ease);
+}
+
+.ref-value:hover {
+  color: var(--teal);
+}
+
+.ref-value.link {
+  color: var(--azure);
+}
+
+.ref-value.link:hover {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ============================================================
@@ -1421,7 +1592,7 @@ img, video { max-width: 100%; display: block; }
     gap: 36px;
   }
   .hero-right { order: -1; }
-  .photo { height: 300px; }
+  .photo { max-height: 380px; }
   .photo-fallback { height: 300px; }
   .trust-row { grid-template-columns: repeat(3, 1fr); }
 }
@@ -1447,6 +1618,9 @@ img, video { max-width: 100%; display: block; }
   .slider-btn.next { right: 8px; }
   .slider-dot { width: 7px; height: 7px; }
   .slider-dot.active { width: 22px; }
+  .cred h3 { padding-right: 0; }
+  .cred.highlight .cred-featured-badge { position: static; display: inline-block; margin-bottom: 10px; }
+  .cred-meta { flex-direction: column; gap: 8px; }
 }
 
 @media (max-width: 520px) {
