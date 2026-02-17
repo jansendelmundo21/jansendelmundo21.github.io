@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jansen Cyrelle G. Del Mundo — IT Support &amp; Operations Portfolio</title>
+  <meta name="description" content="IT Support & Operations Portfolio — troubleshooting, automation, inventory, and internal tools." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <header class="topbar" role="banner">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Del Mundo Portfolio</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#education">Education</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-card" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="drawer-head">
+          <div class="drawer-title">Menu</div>
+          <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+        </div>
+        <a href="#projects" class="drawer-link">Projects</a>
+        <a href="#about" class="drawer-link">About</a>
+        <a href="#experience" class="drawer-link">Experience</a>
+        <a href="#skills" class="drawer-link">Skills</a>
+        <a href="#credentials" class="drawer-link">Credentials</a>
+        <a href="#education" class="drawer-link">Education</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- Left -->
+        <div class="hero-left">
+          <h1 class="hero-title">
+            Jansen Cyrelle<br/>
+            G. Del Mundo
+          </h1>
+
+          <div class="hero-tags">
+            <span class="tag">IT Support &amp; Operations</span>
+            <span class="tag">Python Automation</span>
+            <span class="tag">Network &amp; Systems Fundamentals</span>
+          </div>
+
+          <p class="hero-sub">
+            Entry-level IT professional focused on reliable end-user support, troubleshooting, and workflow efficiency.
+          </p>
+          <p class="hero-sub">
+            Open to System Administration, Networking, and IT Specialist roles.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get in Touch</a>
+            <a class="btn" href="#projects">View Projects</a>
+          </div>
+
+          <div class="hero-mini">
+            <div class="mini">
+              <div class="mini-title">Location</div>
+              <div class="mini-value">Quezon City, Philippines</div>
+            </div>
+            <div class="mini">
+              <div class="mini-title">Email</div>
+              <a class="mini-link" href="mailto:jansencyrelle.cd@gmail.com">jansencyrelle.cd@gmail.com</a>
+            </div>
+            <div class="mini">
+              <div class="mini-title">Phone</div>
+              <div class="mini-value">+63 993 408 6094</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <aside class="hero-right">
+          <div class="photo-card" aria-label="Profile photo card">
+            <img
+              class="photo"
+              src="images/hesoyam.jpg"
+              alt="Profile photo"
+              onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='grid';"
+            />
+            <div id="photoFallback" class="photo-fallback" style="display:none;">
+              <div class="fallback-initials">JD</div>
+              <div class="fallback-note">Photo not found</div>
+            </div>
+
+            <div class="photo-actions">
+              <a class="btn sm primary" href="images/Del%20Mundo%20Resume.pdf" download>Download Resume</a>
+            </div>
+
+            <div class="photo-note">
+              <div class="note-title">Professional Summary</div>
+              <p>
+                Entry-level IT professional with hands-on experience in end-user support, hardware and software troubleshooting,
+                network connectivity issues, ICT inventory tracking, and Python-based automation. Recognized for clear documentation,
+                structured problem-solving, and reliable support that keeps daily IT operations running smoothly.
+              </p>
+            </div>
+
+            <div class="trust-row">
+              <div class="trust">
+                <div class="trust-k">IT Operations</div>
+                <div class="trust-v">End-user support, hardware/software troubleshooting, basic network support</div>
+              </div>
+              <div class="trust">
+                <div class="trust-k">Automation</div>
+                <div class="trust-v">Python scripts for processing, validation, consolidation, and reporting</div>
+              </div>
+              <div class="trust">
+                <div class="trust-k">Asset Management</div>
+                <div class="trust-v">ICT audits, asset status tracking, and documentation</div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p class="muted">
+            Selected internal tools and demos (opens in a new tab).
+          </p>
+        </div>
+
+        <!-- NOTE:
+             Your old layout uses app.js to dynamically render projects into #projectsGrid.
+             To make sure HR can still see demos even if JS fails, the cards below are a clean static set.
+             You can keep app.js if you want; it won’t break these cards. -->
+
+        <div class="grid" id="projectsGrid" aria-live="polite"></div>
+
+<noscript>
+  <div class="card" style="margin-top: 16px;">
+    <h3>Project Demo Videos</h3>
+    <p class="muted">JavaScript is disabled. You can still view the demos here:</p>
+    <ul class="list">
+      <li><a class="link" href="https://drive.google.com/file/d/1ZgKHFBwk69K8mI2Ow7Ir8FSeXfnyssGq/view?usp=drive_link" target="_blank" rel="noopener">Inventory Demo</a></li>
+      <li><a class="link" href="https://drive.google.com/file/d/1fR33KxPBGL9SSk6007WwnLnTSl9Gfhsp/view?usp=drive_link" target="_blank" rel="noopener">QRIS Demo</a></li>
+      <li><a class="link" href="https://drive.google.com/file/d/1Bs9qXwHjcYDsJ2y_xBmt4GL8Wn-Zoz3X/view?usp=drive_link" target="_blank" rel="noopener">Automation Demo</a></li>
+      <li><a class="link" href="https://drive.google.com/file/d/1KY8G28P9ox-cvGHwOvrE2zJy3SttlEOK/view?usp=drive_link" target="_blank" rel="noopener">Central Deployment Demo</a></li>
+    </ul>
+  </div>
+</noscript>
+
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p class="muted">Reliable support, clean documentation, continuous improvement.</p>
+        </div>
+
+        <div class="card">
+          <p class="p">
+            Entry-level IT Support Specialist focused on keeping daily operations stable and efficient. Provides end-user support,
+            troubleshoots hardware, software, and network issues, and maintains accurate operational records and asset documentation.
+          </p>
+          <p class="p">
+            Experienced in data-heavy tasks such as encoding, validation, and consolidation, and in developing Python automation scripts
+            to reduce manual workload and improve data accuracy. Values clear communication, structured troubleshooting, and professional user support.
+          </p>
+
+          <div class="callout">
+            <div class="callout-title">What I bring</div>
+            <ul class="list">
+              <li>Reliable, calm troubleshooting with clear user updates and follow-through</li>
+              <li>Strong documentation habits (ICT assets, status reports, processes, fixes)</li>
+              <li>Automation mindset to streamline repetitive and data-driven tasks</li>
+              <li>Adaptability and eagerness to learn across IT support, operations, and security domains</li>
+              <li>Professionalism and a service-oriented approach to end-user support</li>
+              <li>Commitment to continuous improvement and expanding IT skills beyond the current scope</li>
+              <li>Team player who values collaboration and knowledge sharing in IT environments</li>
+              <li>Proactive approach to staying updated on IT trends and best practices</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p class="muted">Based on my resume timeline.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="card exp">
+            <div class="exp-top">
+              <div>
+                <h3>IT Support Specialist — Commission on Higher Education National Capital Region</h3>
+                <div class="muted">Management Information System (MIS) Unit</div>
+              </div>
+              <div class="exp-date">July 2025 – December 2025</div>
+            </div>
+            <ul class="list">
+              <li>Delivered hands-on IT support for hardware, network connectivity, and software to ensure smooth daily operations.</li>
+              <li>Maintained ICT inventory through regular audits and accurate asset tracking, including status reporting.</li>
+              <li>Performed data encoding, cleaning, validation, and consolidation for reporting and records management.</li>
+              <li>Developed Python automation tools to streamline processes and improve data accuracy.</li>
+            </ul>
+          </article>
+
+          <article class="card exp">
+            <div class="exp-top">
+              <div>
+                <h3>Intern (On-the-Job Training) — Commission on Higher Education National Capital Region</h3>
+                <div class="muted">Management Information System (MIS) Unit</div>
+              </div>
+              <div class="exp-date">January 2025 – March 2025</div>
+            </div>
+            <ul class="list">
+              <li>Assisted in daily digital operations and IT support tasks.</li>
+              <li>Developed Python tools for data processing, document consolidation, and workflow optimization.</li>
+              <li>Designed and implemented a QR code–based employee information system to improve operational efficiency and data accuracy.</li>
+              <li>Supported office operations by troubleshooting hardware/software and maintaining organized records.</li>
+            </ul>
+          </article>
+
+          <article class="card exp">
+            <div class="exp-top">
+              <div>
+                <h3>Freelance Computer Support Specialist</h3>
+                <div class="muted">Hardware &amp; Software Support</div>
+              </div>
+              <div class="exp-date">2022 – Present</div>
+            </div>
+            <ul class="list">
+              <li>Installed, maintained, and repaired computer hardware and software.</li>
+              <li>Diagnosed user issues, implemented effective fixes, and provided repair estimates.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>IT Support &amp; Troubleshooting</h3>
+            <ul class="list">
+              <li>Hardware diagnostics and basic repair, replacement, and troubleshooting</li>
+              <li>Software installation, configuration, and end-user support</li>
+              <li>LAN, printer, and connectivity troubleshooting (basic IP checks, connectivity testing)</li>
+              <li>Clear technical documentation, issue tracking, and user communication</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Automation &amp; Programming</h3>
+            <ul class="list">
+              <li>Python scripting and automation for data processing and reporting</li>
+              <li>Excel/CSV processing and automated report generation</li>
+              <li>Basic PHP/Laravel and Bash scripting (fundamentals)</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Data &amp; Operations</h3>
+            <ul class="list">
+              <li>Data entry, cleaning, validation, and consolidation for reporting accuracy</li>
+              <li>ICT inventory management and asset tracking (audits, status reports, lifecycle records)</li>
+              <li>Microsoft Office: Excel, Word, PowerPoint</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Security &amp; Systems</h3>
+            <ul class="list">
+              <li>Foundational cybersecurity principles (CIA Triad)</li>
+              <li>System administration fundamentals (accounts, permissions, patching, backups)</li>
+              <li>SIEM tools (exposure) – log monitoring and basic triage</li>
+              <li>Incident awareness &amp; escalation procedures</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-head">
+          <h2>Credentials</h2>
+        </div>
+
+       <article class="card cred highlight">
+  <div class="kicker">Google • Coursera</div>
+  <h3>Google Professional Cybersecurity</h3>
+
+  <ul class="list">
+    <li>Foundational cybersecurity training covering threats, risks, and vulnerabilities</li>
+    <li>Hands-on exposure to security frameworks, incident response, and risk management</li>
+    <li>Introduction to SIEM tools, log analysis, and basic security operations</li>
+    <li>Focused on real-world security concepts aligned with entry-level SOC and IT roles</li>
+  </ul>
+
+  <div class="cred-meta">
+    <div><strong>Credential ID:</strong> TW0NBM7L266O</div>
+    <div>
+      <strong>Verify:</strong>
+      <a class="link" 
+         href="https://www.coursera.org/account/accomplishments/specialization/TW0NBM7L266O"
+         target="_blank" rel="noopener">
+        Coursera Credential Verification
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="card cred">
+  <div class="kicker">Udemy</div>
+  <h3>Network Defense Fundamentals</h3>
+  <ul class="list">
+    <li>Introduction to network threats, defense strategies, and basic security controls</li>
+    <li>Understanding firewalls, intrusion concepts, and secure network practices</li>
+  </ul>
+</article>
+
+<article class="card cred">
+  <div class="kicker">Udemy</div>
+  <h3>Cyber Security: Anti-Virus</h3>
+  <ul class="list">
+    <li>Fundamentals of malware types, detection, and prevention techniques</li>
+    <li>Basic endpoint protection concepts and security hygiene</li>
+  </ul>
+</article>
+
+<article class="card cred">
+  <div class="kicker">Udemy</div>
+  <h3>Cyber Kill Chain</h3>
+  <ul class="list">
+    <li>Overview of the cyber kill chain framework and attack lifecycle</li>
+    <li>Understanding attacker methods and defensive response stages</li>
+  </ul>
+</article>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head">
+          <h2>Education</h2>
+          <p class="muted">Academic background.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <div class="muted">STI Novaliches College • 2022 – 2025</div>
+          </article>
+
+          <article class="card">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <div class="muted">Technological Institute of the Philippines • 2021 – 2022</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  
+
+<footer class="footer">
+  © <span id="year"></span> Jansen Del Mundo · Quezon City, Philippines ·
+  <a href="mailto:jansencyrelle.cd@gmail.com">jansencyrelle.cd@gmail.com</a>
+</footer>      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="lightbox" aria-hidden="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="modal-close" data-close="1" aria-label="Close">✕</button>
+      <img id="lightboxImg" alt="Preview" />
+      <div class="modal-meta">
+        <a class="btn sm" id="lightboxDownload" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Footer year (keeps it correct automatically)
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
