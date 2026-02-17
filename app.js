@@ -1,5 +1,3 @@
-
-
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
@@ -354,11 +352,15 @@ function createProjectCard(project) {
   const sliderPlaceholder = card.querySelector("[data-slider]");
 
   if (hasImages) {
-    const validImages = [];
+    // Use indexed slots so images always appear in original number order
+    // regardless of which image finishes loading first
+    const imageSlots = new Array(candidates.length).fill(null);
     let loadedCount = 0;
 
     const checkAllLoaded = () => {
       if (loadedCount === candidates.length) {
+        // Filter out failed images but keep original order
+        const validImages = imageSlots.filter(Boolean);
         if (validImages.length > 0) {
           const slider = createSlider(validImages);
           if (slider) sliderPlaceholder.replaceWith(slider);
@@ -369,14 +371,22 @@ function createProjectCard(project) {
       }
     };
 
-    candidates.forEach((src) => {
+    candidates.forEach((src, index) => {
       const testImg = new Image();
-      testImg.onload = () => { validImages.push(src); loadedCount++; checkAllLoaded(); };
-      testImg.onerror = () => { loadedCount++; checkAllLoaded(); };
+      testImg.onload = () => {
+        imageSlots[index] = src; // slot into correct position
+        loadedCount++;
+        checkAllLoaded();
+      };
+      testImg.onerror = () => {
+        // leave slot as null — filtered out later
+        loadedCount++;
+        checkAllLoaded();
+      };
       testImg.src = src;
     });
 
-    // Fallback timeout
+    // Fallback timeout — force render with whatever loaded
     setTimeout(() => {
       if (loadedCount < candidates.length) {
         loadedCount = candidates.length;
@@ -482,7 +492,7 @@ async function loadProjects() {
         "imageSets": [
           { "folder": "images/projects", "prefix": "qr", "start": 1, "end": 14, "ext": "png" }
         ],
-        "extraImages": ["images/projects/QR11.png"],
+        "extraImages": ["images/projects/qr11.png"],
         "video": "https://drive.google.com/file/d/1fR33KxPBGL9SSk6007WwnLnTSl9Gfhsp/view?usp=drive_link",
         "note": "Screenshots use fictional sample data for demonstration purposes only."
       },
